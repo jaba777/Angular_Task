@@ -1,0 +1,27 @@
+<div class="sign">
+  <form #form="ngForm" (ngSubmit)="SignIn()">
+    <div class="brand">
+      <h1>snappy</h1>
+    </div>
+    <input
+      type="text"
+      placeholder="Email"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      minlength="3"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+      minlength="3"
+    />
+    <button type="submit">Log In</button>
+    <p *ngIf="UsernotFound" class="warning">You aren't registered</p>
+    <p *ngIf="IncorrectPassword" class="warning">Password is Incorrect</p>
+    <a routerLink="/sign-up"> You Don't have account? </a>
+  </form>
+</div>

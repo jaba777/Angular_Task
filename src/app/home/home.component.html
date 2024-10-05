@@ -1,0 +1,10 @@
+<app-header></app-header>
+<div>Welcome to the Home page</div>
+
+<div class="items-container">
+  <div *ngFor="let item of items" class="item">
+    <img [src]="item.photo" alt="Item photo" class="item-photo" />
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.description }}</p>
+  </div>
+</div>

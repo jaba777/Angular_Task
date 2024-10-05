@@ -1,0 +1,42 @@
+<div class="sign">
+  <form #form="ngForm" (ngSubmit)="handleSubmit()">
+    <div class="brand">
+      <h1>snappy</h1>
+    </div>
+    <input
+      type="text"
+      placeholder="Name"
+      name="name"
+      [(ngModel)]="user.name"
+      minlength="3"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Surname"
+      name="surname"
+      [(ngModel)]="user.surname"
+      minlength="3"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Email"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+      minlength="3"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+      minlength="3"
+    />
+    <button type="submit">Sign Up</button>
+    <p *ngIf="isRegistered" class="warning">You Have already registered</p>
+    <a routerLink="/sign-in"> have already an account ? </a>
+  </form>
+</div>

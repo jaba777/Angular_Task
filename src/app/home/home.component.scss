@@ -1,0 +1,36 @@
+.items-container {
+  display: flex; // Use flexbox for layout
+  flex-wrap: wrap; // Allow items to wrap onto multiple lines
+  justify-content: space-between; // Distribute space between items
+  margin: 20px; // Add margin around the container
+  padding: 10px; // Add padding inside the container
+
+  .item {
+    background-color: #f9f9f9; // Light background color for items
+    border: 1px solid #ddd; // Border around each item
+    border-radius: 8px; // Rounded corners
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+    margin: 10px; // Spacing between items
+    padding: 15px; // Inner padding for item content
+    width: calc(33% - 20px); // Responsive width, adjust as needed
+
+    // Image styling
+    .item-photo {
+      max-width: 100%; // Ensure the image fits the item
+      height: auto; // Maintain aspect ratio
+      border-radius: 4px; // Rounded corners for images
+    }
+
+    // Title styling
+    h2 {
+      font-size: 1.5em; // Larger font size for titles
+      margin: 10px 0; // Spacing above and below the title
+    }
+
+    // Description styling
+    p {
+      font-size: 1em; // Normal font size for description
+      color: #555; // Dark gray text color for description
+    }
+  }
+}
