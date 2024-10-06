@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeroService } from '../Services/hero.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,7 +8,10 @@ import { Router } from '@angular/router';
   styleUrl: '../sign-up/sign-up.component.scss',
 })
 export class SignInComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private readonly heroService: HeroService
+  ) {}
   users: any[] = [];
   user: any = {
     email: '',
@@ -17,9 +21,8 @@ export class SignInComponent {
   IncorrectPassword: boolean = false;
 
   SignIn() {
-    const storedUsers = localStorage.getItem('users');
+    const storedUsers = this.heroService.getUsers();
     if (storedUsers) {
-      // If users exist, parse them into the users array
       this.users = JSON.parse(storedUsers);
     }
 
@@ -30,7 +33,7 @@ export class SignInComponent {
       if (findUser.password !== this.user.password) {
         this.IncorrectPassword = true;
       } else {
-        localStorage.setItem('user', JSON.stringify(findUser));
+        this.heroService.setInStorage('user', JSON.stringify(findUser));
         this.user = {
           email: '',
           password: '',
